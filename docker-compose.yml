@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - PGPORT=5450
+    container_name: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5450:5450'
+  
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3050
+    ports:
+      - '3050:3050'
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
