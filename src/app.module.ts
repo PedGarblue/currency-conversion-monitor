@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { BcvModule } from './bcv/bcv.module';
 import { ConversionsModule } from './conversions/conversions.module';
 
 @Module({
@@ -18,6 +19,7 @@ import { ConversionsModule } from './conversions/conversions.module';
       autoLoadEntities: true,
     }),
     ConversionsModule,
+    BcvModule,
   ],
   controllers: [AppController],
   providers: [AppService],
