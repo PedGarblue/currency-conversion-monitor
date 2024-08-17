@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BcvModule } from './bcv/bcv.module';
 import { ConversionsModule } from './conversions/conversions.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ConversionsModule } from './conversions/conversions.module';
       synchronize: true,
       autoLoadEntities: true,
     }),
+    ScheduleModule.forRoot(),
     ConversionsModule,
     BcvModule,
   ],

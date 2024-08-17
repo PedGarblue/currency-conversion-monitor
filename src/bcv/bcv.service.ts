@@ -18,7 +18,7 @@ export class BcvService {
     return this.httpService.get(url);
   }
 
-  @Cron('0 11 * * 1-5', {
+  @Cron('0 12 * * 1-5', {
     name: 'scrapePageBCV',
     timeZone: 'America/Caracas',
   })
